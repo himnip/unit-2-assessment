@@ -23,7 +23,11 @@
 
 //CODE HERE
 
+const greetUser = (user) => {
+    console.log(`Welcome back, ${user}`)
+}
 
+greetUser('Andrew')
 
 
 
@@ -53,6 +57,23 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 
 
+function canWeDeliver(zipCode) {
+    let exists = false
+    for (let i = 0; i < deliveryAreaZipCodes.length; i++) {
+        if (deliveryAreaZipCodes[i] === zipCode) {
+            exists = true
+            break
+        }
+    }
+    if (exists) {
+        console.log('You are in our delivery zone!')
+    } else {
+        console.log('Sorry, we cannot deliver to that address.')
+    }
+}
+
+canWeDeliver(85214)
+
 /* 
     Problem 2 Continued
 
@@ -72,7 +93,13 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 // CODE HERE
 
-
+function canWeDeliverTwo(zipCode) {
+    if (deliveryAreaZipCodes.includes(zipCode)) {
+        console.log('You are in our delivery zone!')
+    } else {
+        console.log('Sorry, we cannot deliver to that address.')
+    }
+}
 //////////////////PROBLEM 3////////////////////
 /* 
     Below is an array of objects that have some
@@ -108,6 +135,15 @@ const deals = [
 
 //CODE HERE
 
+// let newDeals = deals.find((p) => {
+//     return p.title === '15% Off!';
+// });
+
+// newDeals.title = '10% Off!'
+
+// console.log(deals)
+
+deals[0].title = deals[0].title.replace('15','10')
 
 
 /*
@@ -123,4 +159,12 @@ const deals = [
     to be displaying wrong on the live site.
 */
 
-//CODE HERE
+// let replaceDeals = deals.find((p) => p.desc === '   This deal lasts until the end of March! ');
+
+// replaceDeals.desc = 'This deal lasts until the end of April!'
+
+// console.log(deals)
+
+deals[1].desc = deals[1].desc.trim().replace('March', 'April')
+
+console.log(deals)

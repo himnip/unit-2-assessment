@@ -35,8 +35,12 @@ const cart = [
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+const summedPrice = cart.reduce(
+    (previousValue, currentValue) => previousValue + currentValue.price, 
+    0,
+);
 
+console.log(summedPrice)
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -55,7 +59,10 @@ const cart = [
 
 //CODE HERE
 
-
+function calcFinalPrice(cartTotal, couponValue, tax) {
+    calcFinalPrice = cartTotal + tax - couponValue
+    return calcFinalPrice
+}
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -79,7 +86,11 @@ const cart = [
 
 /*
     TEXT ANSWER HERE
-
+For the properties i chose for my customer object were name, age, allergies and zip code. 
+I chose name because it's necessary for a restaurant to know the name of a customer to ensure their order gets to them and it will be a string. 
+Age so that if a customer had the same name as someone else there could be other ways to differientate the customer by physically seeing them and it will be a number. 
+Allergies help the restaurant make sure nothing harmful goes into the customers food and this will be a string.
+Lastly zip code so that their order can be delivered to them or they can see if they are eligible for delivery and this would be a number. 
 */
 
 /*
@@ -88,3 +99,10 @@ const cart = [
 */
 
 //CODE HERE
+
+let customer = {
+    name: 'James',
+    age: 24,
+    allergies: 'shellfish',
+    zipCode: 84005,
+}

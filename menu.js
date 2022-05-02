@@ -32,6 +32,14 @@
 
 //CODE HERE
 
+let pizza = {
+    name: "Marghertia",
+    price: 15.00,
+    category: "entree",
+    popularity: 8,
+    rating: 4,
+    tags: ["gluten free", "kid friendly"]
+}
 
 
 //////////////////PROBLEM 2////////////////////
@@ -44,6 +52,7 @@
 
 //CODE HERE
 
+console.log(pizza.popularity)
 
 /*
     Second, log the second tag in your pizza's
@@ -54,16 +63,23 @@
 
 //CODE HERE
 
+console.log(pizza['tags'])
 
 /*
     Third, destructure the price off of the
     pizza object.
     
     Print the value of your new price variable.
+
+    ask pj for help w this too 
+
 */
 
 //CODE HERE
 
+let {price} = pizza
+
+console.log(pizza.price)
 
 /*
     Fourth, and last, destructure the category
@@ -74,6 +90,9 @@
 
 //CODE HERE
 
+let {category} = pizza 
+
+console.log(pizza.category)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -89,7 +108,48 @@
 
 //CODE HERE
 
-
+const foodArr = [
+    {
+        name: 'Mozarella sticks',
+        price: 14.00 ,
+        category: 'appetizer',
+        popularity: 7,
+        rating: 4,
+        tags: ['has peanut oil'],
+    },
+    {
+        name: 'Alfredo pasta',
+        price: 14.00,
+        category: 'entree',
+        popularity: 9,
+        rating: 3,
+        tags: ['vegan friendly'],
+    },
+    {
+        name: 'Cauliflower rice ',
+        price: 10.00,
+        category: 'side',
+        popularity: 8,
+        rating: 3,
+        tags: ['vegan friendly'], 
+    },
+    {
+        name: 'Lava cake',
+        price: 7.99,
+        category: 'dessert',
+        popularity: 7,
+        rating: 5,
+        tags: ['has tree nuts'],
+    },
+    {
+        name: 'Flan',
+        price: 8.99 ,
+        category: 'dessert',
+        popularity: 10,
+        rating: 5,
+        tags: ['dairy free'],
+    }
+]
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -105,7 +165,9 @@
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+const filteredFood = foodArr.filter(function(food) {
+   return food.tags.includes('dairy free')
+})
 
 
 
@@ -137,9 +199,9 @@
 
     Use the filter method to filter the foodArr
 
-        In the callback, check if the `type` is `above`, 
+        In the callback, check if the `type` is `below`, 
         if it is, return objects whose value for the given
-        property is greater than the `number` passed in
+        property is less than than the `number` passed in
 
         If the type isn't `below`, return objects whose
         value for the given property is less than the 
@@ -150,6 +212,17 @@
 
 //CODE HERE
 
+function filterByProperty(property, number, type) {
+    return foodArr.filter(function(food) {
+        console.log('Checking filter for', food[property])
+        if (type === 'above') {
+            return food[property] > number
+        } else {
+            return food[property] < number
+        }
+    })
+}
+
 
 /*
     Invoke the `filterByProperty` function passing
@@ -159,3 +232,6 @@
 */
 
 //CODE HERE
+
+
+console.log(filterByProperty('price', 6, 'above'))
